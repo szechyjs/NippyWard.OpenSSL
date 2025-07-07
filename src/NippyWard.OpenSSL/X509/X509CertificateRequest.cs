@@ -61,7 +61,7 @@ namespace NippyWard.OpenSSL.X509
         public X509CertificateRequest(PrivateKey privateKey)
             : this(Create509Request(CryptoWrapper.X509_REQ_new(), privateKey))
         {
-            this.Version = 2;
+            this.Version = 0;
         }
 
         public X509CertificateRequest(PrivateKey privateKey, string OU, string CN)
