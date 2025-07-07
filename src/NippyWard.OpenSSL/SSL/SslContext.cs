@@ -250,6 +250,8 @@ namespace NippyWard.OpenSSL.SSL
                 protocolOptions |= Interop.SslOptions.SSL_OP_NO_TLSv1_3;
             }
 
+            protocolOptions |= Interop.SslOptions.SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION;
+
             //set the context options
             SSLWrapper.SSL_CTX_set_options(sslContextHandle, (long)protocolOptions);
 
