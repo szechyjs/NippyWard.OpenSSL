@@ -146,8 +146,8 @@ namespace NippyWard.OpenSSL.Generator
                 (
                     ctx,
                     s,
-                    new (string, string)[] { ("libcrypto-3", "winx86"), ("libcrypto-3-x64", "winx64"), ("libcrypto.so", "linux") },
-                    new (string, string)[] { ("libssl-3", "winx86"), ("libssl-3-x64", "winx64"), ("libssl.so", "linux") }
+                    new (string, string)[] { ("libcrypto-3", "winx86"), ("libcrypto-3-x64", "winx64"), ("libcrypto.so.3", "linux"), ("libcrypto.3.dylib", "osx") },
+                    new (string, string)[] { ("libssl-3", "winx86"), ("libssl-3-x64", "winx64"), ("libssl.so.3", "linux"), ("libssl.3.dylib", "osx") }
                 )
             );
         }

@@ -91,6 +91,12 @@ namespace NippyWard.OpenSSL.Interop
                 SSLWrapper = new LibSSLWrapper_linux();
                 StackWrapper = new StackWrapper_linux();
             }
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            {
+              CryptoWrapper = new LibCryptoWrapper_osx();
+              SSLWrapper = new LibSSLWrapper_osx();
+              StackWrapper = new StackWrapper_osx();
+            }
             else
             {
                 throw new PlatformNotSupportedException();
