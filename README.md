@@ -1,5 +1,5 @@
 # NippyWard.OpenSSL
-A multi-platform OpenSSL .NET wrapper containing a high-performance TLS implementation 
+A multi-platform OpenSSL .NET wrapper containing a high-performance TLS implementation
 
 ## Rationale
 I was writing some networking code, but the SSL connection would not succeed. This only occured on Windows. On Linux - mono only at the time - the SSL connection always succeeded. Hence I needed an OpenSSL wrapper and stumbled upon https://github.com/openssl-net/openssl-net. This project was already abandoned, but it still ran fine on .NET framwork/mono. After .NET Core came out I kept everything compatible and also started refactoring the code. It has now evovled into a mostly X509/TLS wrapper.
@@ -28,7 +28,8 @@ dotnet nuget push bin\Debug\runtime.win.OpenSSL.1.1.1n.nupkg -s %USERPROFILE%\.n
 This nuget package should get auto-referenced when on Windows and referencing NippyWard.OpenSSL. You need to guarantee it's in your cache, because it is not available on NuGet.org.
 
 ### MacOS
-I have no mac.
+Copy (or symlink) `libssl.3.dylib` and `libcrypto.3.dylib` to your bin directory. These libraries can be found in the OpenSSL installation directory,
+which is usually `/opt/homebrew/opt/openssl@3/lib` if you installed OpenSSL using Homebrew.
 
 ## Usage
 See [tests](test/NippyWard.OpenSSL.Tests) for usage examples.
@@ -51,6 +52,7 @@ using (CipherEncryption cipherEncryption = new CipherEncryption(CipherType.AES_2
     int finalEncryptedLength = cipherEncryption.Finalize(ref outputSpan);
 }
 ```
+
 Decryption is the same. See [TestCipher](test/NippyWard.OpenSSL.Tests/TestCipher.cs) for further details.
 
 ### Hashing
